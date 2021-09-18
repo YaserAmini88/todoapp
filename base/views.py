@@ -18,3 +18,16 @@ def addTodoItem(request):
         new_todo.save()
 
     return redirect('index')
+
+
+def completedTodo(request, todo_id):
+    todo = TodoList.objects.get(pk=todo_id)
+    todo.completed = True
+    todo.save()
+
+    return redirect('index')
+
+def deleteCompleted(request):
+    TodoList.objects.filter(completed__exact=True).delete()
+
+    return redirect('index')
