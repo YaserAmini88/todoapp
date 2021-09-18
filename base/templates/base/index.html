@@ -58,7 +58,7 @@
                             {% if todolist.completed %} <!-- completed is a boolean field in our models.py -->
                                 <li class="list-group-item todo-completed">{{ todolist.text }}</li>
                              {% else %}
-                               <a href="#"><li class="list-group-item">{{ todolist.text }}</li></a>
+                               <a href="{% url 'completed' todolist.id %}"><li class="list-group-item">{{ todolist.text }}</li></a>
                             {% endif %}
                         {% endfor %}
 					</ul>
